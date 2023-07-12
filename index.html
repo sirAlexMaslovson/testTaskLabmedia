@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Список пользователей</title>
+</head>
+<body>
+
+<div class="main_table">
+
+    <h1>Список пользователей</h1>
+
+
+    <section class="search_section">
+        <form class="search_form">
+            <button type="submit" class="search_button" button-search-wr></button>
+            <input class="search_field" type="search" search-wr placeholder="Поиск по имени или e-mail">
+        </form>
+        <a href="#" class="search_clear" clear-search-wr>
+           <img src="img/clear.svg" alt="clear">
+           <p>Очистить фильтр</p>
+        </a>
+    </section>
+
+    <div class="sort_users">
+        <span>Сортировка:</span>
+            <a sort-by-date>Дата регистрации</a>
+            <a sort-by-rating>Рейтинг</a>
+    </div>
+
+        <section class="table_users">
+            <table>
+                <tbody >
+                    <tr>
+                        <td>Имя пользователя</td>
+                        <td>E-mail</td>
+                        <td>Дата регистрации</td>
+                        <td>Рейтинг</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+                <tbody data-wr></tbody>
+            </table>
+        </section>
+
+        <section class="pagination">
+            <a href="#">«</a>
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">»</a>
+          </section>
+
+          <div data-modals_wr_edit class="modal-wr hidden">
+            <div class="modal-window">
+                    <p>Вы уверены, что хотите удалить пользователя?</p>
+                <div class="buttons-modal">
+                    <button class="button-submit">Да</button>
+                    <button class="button-cancel">Нет</button>
+                </div>
+            </div>
+          </div>
+    
+</div>
+    
+<script src="script.js"></script>
+</body>
+</html>
