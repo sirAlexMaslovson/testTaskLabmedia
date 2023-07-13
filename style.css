@@ -145,8 +145,14 @@ color: #0CB4F1;
  }
 
  .button_delete {
-border: none;
-background-color: white;
+  width: 15px;
+  height: 15px;
+  background-image: url(img/delete.svg);
+  color: #333333;
+  background-color: white;
+  border-radius: 4px;
+  text-align: center;
+  border: none;
 }
 
 .pagination {
@@ -163,7 +169,7 @@ background-color: white;
 }
 
 .pagination a.active {
-  background-color: #4F4F4F;
+  background-color: #0CB4F1;
   color: white;
   border-radius: 5px;
 }

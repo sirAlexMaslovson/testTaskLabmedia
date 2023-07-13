@@ -1,73 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Список пользователей</title>
 </head>
+
 <body>
 
-<div class="main_table">
+    <div class="main_table">
 
-    <h1>Список пользователей</h1>
+        <h1>Список пользователей</h1>
 
 
-    <section class="search_section">
-        <form class="search_form">
-            <button type="submit" class="search_button" button-search-wr></button>
-            <input class="search_field" type="search" search-wr placeholder="Поиск по имени или e-mail">
-        </form>
-        <a href="#" class="search_clear" clear-search-wr>
-           <img src="img/clear.svg" alt="clear">
-           <p>Очистить фильтр</p>
-        </a>
-    </section>
+        <section class="search_section">
+            <form class="search_form">
+                <button type="submit" class="search_button" button-search-wr></button>
+                <input class="search_field" type="search" search-wr placeholder="Поиск по имени или e-mail">
+            </form>
+            <a href="#" class="search_clear" clear-search-wr>
+                <img src="img/clear.svg" alt="clear">
+                <p>Очистить фильтр</p>
+            </a>
+        </section>
 
-    <div class="sort_users">
-        <span>Сортировка:</span>
+        <div class="sort_users">
+            <span>Сортировка:</span>
             <a sort-by-date>Дата регистрации</a>
             <a sort-by-rating>Рейтинг</a>
-    </div>
+        </div>
 
         <section class="table_users">
             <table>
-                <tbody >
+                <tbody>
                     <tr>
                         <td>Имя пользователя</td>
                         <td>E-mail</td>
                         <td>Дата регистрации</td>
                         <td>Рейтинг</td>
                         <td></td>
-                      </tr>
+                    </tr>
                 </tbody>
                 <tbody data-wr></tbody>
             </table>
         </section>
 
-        <section class="pagination">
-            <a href="#">«</a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">»</a>
-          </section>
+        <section pagination-wr class="pagination">
+        </section>
 
-          <div data-modals_wr_edit class="modal-wr hidden">
+        <div data-modals_wr class="modal-wr hidden">
             <div class="modal-window">
-                    <p>Вы уверены, что хотите удалить пользователя?</p>
+                <p>Вы уверены, что хотите удалить пользователя?</p>
                 <div class="buttons-modal">
-                    <button class="button-submit">Да</button>
-                    <button class="button-cancel">Нет</button>
+                    <button type="submit" class="button-submit">Да</button>
+                    <button type="reset" class="button-cancel">Нет</button>
                 </div>
             </div>
-          </div>
-    
-</div>
-    
-<script src="script.js"></script>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
