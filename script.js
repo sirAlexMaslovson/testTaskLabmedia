@@ -1,6 +1,7 @@
 "use strict";
 
 let myArrayUsers = []
+let myArrayFilterdUsers = null
 const $wr = document.querySelector('[data-wr]')
 const $search = document.querySelector('[search-wr]')
 const $buttonSearch = document.querySelector('[button-search-wr]')
@@ -70,14 +71,13 @@ getAllUsers()
   })
   .catch(alert)
 
-
 // Слушатель на выведение результатов поиска в таблицу
 $buttonSearch.addEventListener('click', event => {
   event.preventDefault()
   let searchResult = $search.value.toLowerCase().trim()
-  let myUsers = [...myArrayUsers].filter((user) => user.username.toLowerCase().trim().includes(searchResult) || user.email.toLowerCase().trim().includes(searchResult));
+  myArrayFilterdUsers = [...myArrayUsers].filter((user) => user.username.toLowerCase().trim().includes(searchResult) || user.email.toLowerCase().trim().includes(searchResult));
   $search.value = ''
-  tableRender(myUsers)
+  tableRender(myArrayFilterdUsers)
 })
 
 // Слушатель на удаление юзера из списка
@@ -88,7 +88,8 @@ $wr.addEventListener('click', (event) => {
   $modalWr.addEventListener('click', (event) => {
     event.preventDefault()
     if (event.target.type === "submit") {
-      myArrayUsers = myArrayUsers.filter((user) => user.id !== idUser);
+      myArrayUsers = myArrayUsers.filter((user) => user.id !== idUser)
+      myArrayFilterdUsers = null
       tableRender(myArrayUsers)
       $modalWr.classList.add('hidden')
     } else {
@@ -99,6 +100,7 @@ $wr.addEventListener('click', (event) => {
 
 // Слушатель на очистку поиска
 $searchClear.onclick = () => {
+  myArrayFilterdUsers = null
   tableRender(myArrayUsers)
   $sortDate.classList.remove('onSort')
   $sortRaiting.classList.remove('onSort')
@@ -148,6 +150,6 @@ $sortRaiting.addEventListener('click', (event) => {
 // Слушатель на кнопку пагинации
 $paginPage.addEventListener('click', (event) => {
   event.preventDefault()
-  tableRender(myArrayUsers, event.target.id)
+  tableRender(myArrayFilterdUsers ?? myArrayUsers, event.target.id)
 })
 
