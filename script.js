@@ -1,6 +1,5 @@
 "use strict";
 
-let originalArray = []
 let myArrayUsers = []
 const $wr = document.querySelector('[data-wr]')
 const $search = document.querySelector('[search-wr]')
@@ -67,7 +66,6 @@ const tableRender = (state, n = 1) => {
 getAllUsers()
   .then((responsFromBackEnd) => {
     myArrayUsers = [...responsFromBackEnd]
-    originalArray = myArrayUsers
     tableRender(myArrayUsers)
   })
   .catch(alert)
@@ -78,6 +76,7 @@ $buttonSearch.addEventListener('click', event => {
   event.preventDefault()
   let searchResult = $search.value.toLowerCase().trim()
   let myUsers = [...myArrayUsers].filter((user) => user.username.toLowerCase().trim().includes(searchResult) || user.email.toLowerCase().trim().includes(searchResult));
+  $search.value = ''
   tableRender(myUsers)
 })
 
