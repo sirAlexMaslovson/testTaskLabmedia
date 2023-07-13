@@ -77,8 +77,8 @@ getAllUsers()
 $buttonSearch.addEventListener('click', event => {
   event.preventDefault()
   let searchResult = $search.value.toLowerCase().trim()
-  myArrayUsers = [...originalArray].filter((user) => user.username.toLowerCase().trim().includes(searchResult) || user.email.toLowerCase().trim().includes(searchResult));
-  tableRender(myArrayUsers)
+  let myUsers = [...myArrayUsers].filter((user) => user.username.toLowerCase().trim().includes(searchResult) || user.email.toLowerCase().trim().includes(searchResult));
+  tableRender(myUsers)
 })
 
 // Слушатель на удаление юзера из списка
@@ -100,7 +100,6 @@ $wr.addEventListener('click', (event) => {
 
 // Слушатель на очистку поиска
 $searchClear.onclick = () => {
-  myArrayUsers = originalArray
   tableRender(myArrayUsers)
   $sortDate.classList.remove('onSort')
   $sortRaiting.classList.remove('onSort')
